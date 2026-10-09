@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#722f45">
+<title>Historia de dos · ¿Qué porcentaje de tu vida llevas con tu pareja?</title>
+<meta name="description" content="Calcula qué porcentaje de tu vida has compartido con tu pareja, descubre vuestros próximos aniversarios y cuándo llevaréis media vida juntos. Gratis y sin registro.">
+<meta property="og:title" content="Historia de dos · Vuestra historia, en números"><meta property="og:description" content="¿Cuándo llevaréis media vida juntos? Descubre vuestros porcentajes, aniversarios y fechas especiales."><meta property="og:type" content="website"><meta property="og:locale" content="es_ES">
+<link rel="canonical" href="https://molinero95.github.io/historia-de-dos/">
+<link rel="icon" href="./heart.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#calculator">Ir a la calculadora</a>
+<header class="site-header"><a class="brand" href="./"><span class="brand-icon" aria-hidden="true">♡</span> historia de dos<span class="brand-dot">.</span></a><nav aria-label="Principal"><a href="#calculator">Calculadora</a><a href="#how">Cómo funciona</a></nav><span class="header-note">Cada día cuenta</span></header>
+<main>
+<section class="intro"><p class="eyebrow"><span aria-hidden="true">✦</span> VUESTRA HISTORIA, EN NÚMEROS</p><h1>Una vida.<br>Muchos días <em>juntos.</em></h1><p class="intro-text">Hay fechas que lo cambian todo. Descubre cuánto de tu vida habéis compartido y todo lo que os queda por celebrar.</p><div class="intro-mark" aria-hidden="true"><span>tú</span><div class="orbit one"></div><div class="orbit two"></div><b>♡</b><span>+ tu persona favorita</span></div></section>
+<section class="workspace" id="calculator" aria-label="Calculadora de pareja">
+<aside class="form-panel"><p class="eyebrow">01 / VUESTRO PUNTO DE PARTIDA</p><h2>Todo empezó un día.</h2><p class="muted">Dos fechas para contar vuestra historia.</p>
+<form id="dates-form" novalidate>
+<label for="birth">Tu fecha de nacimiento <span>*</span></label><input type="date" id="birth" name="birth" min="1900-01-01" required>
+<label for="start">¿Cuándo empezasteis? <span>*</span></label><input type="date" id="start" name="start" min="1900-01-01" required>
+<details id="extra-inputs"><summary>Añadir más a vuestra historia <span aria-hidden="true">+</span></summary><div class="extra-fields">
+<label for="name">Tu nombre <small>opcional</small></label><input id="name" name="name" maxlength="30" placeholder="Tu nombre" autocomplete="given-name">
+<label for="partnerName">Nombre de tu pareja <small>opcional</small></label><input id="partnerName" name="partnerName" maxlength="30" placeholder="Su nombre">
+<label for="partnerBirth">Nacimiento de tu pareja</label><input type="date" id="partnerBirth" name="partnerBirth" min="1900-01-01">
+<label for="wedding">Fecha de vuestra boda <small>si ya os casasteis</small></label><input type="date" id="wedding" name="wedding" min="1900-01-01">
+<label for="targetLabel">Una fecha que esperáis</label><input id="targetLabel" name="targetLabel" maxlength="60" placeholder="Nuestra boda, un viaje, una sorpresa…">
+<label for="target">Fecha de la cuenta atrás</label><input type="date" id="target" name="target" min="1900-01-01">
+</div></details>
+<label class="check"><input type="checkbox" id="remember" name="remember"> Recordar mis datos en este dispositivo</label>
+<p id="form-error" class="error" role="alert" hidden></p>
+<button class="primary" type="submit">Descubrir nuestra historia <span aria-hidden="true">↗</span></button>
+<button class="text-button" id="demo" type="button">Ver un ejemplo</button>
+</form><p class="privacy-note"><span aria-hidden="true">♧</span> Tus fechas se calculan en tu navegador.</p><button class="text-button small" id="clear" type="button">Borrar mis datos</button><p id="storage-status" class="small muted" role="status"></p>
+</aside>
+<div class="results-panel">
+<div class="result-toolbar"><p class="eyebrow">02 / LO QUE HABÉIS COMPARTIDO</p><span id="as-of" class="small muted"></span></div>
+<div id="empty" class="empty"><span class="empty-heart" aria-hidden="true">♡</span><h2>¿Y si ya lleváis<br><em>media vida juntos?</em></h2><p>Introduce vuestras fechas y descubre un lado nuevo de vuestra historia.</p><div class="empty-tags"><span>Vuestro porcentaje</span><span>Próximos hitos</span><span>Fechas especiales</span></div></div>
+<div id="results" hidden>
+<section class="hero-stat" aria-labelledby="story-title"><div><p id="story-title">De tu vida, a su lado.</p><p class="big-percent"><span id="life-percent">0</span><span class="percent-sign">%</span></p><p id="hero-caption" class="muted"></p></div><div class="heart-disc" aria-hidden="true">♡<span>Y SUMANDO</span></div><div class="life-bar" role="img" id="life-bar"><span id="bar-before"></span><span id="bar-together"></span></div><div class="bar-labels"><span>Antes de conoceros</span><span>Vuestra vida juntos</span></div></section>
+<div class="stats-grid"><article class="stat"><p>Una historia de</p><h3 id="duration"></h3><p id="duration-detail" class="muted"></p></article><article class="stat"><p>Días eligiéndoos</p><h3 id="together-days"></h3><p id="weeks" class="muted"></p></article><article class="stat" id="partner-stat" hidden><p id="partner-title"></p><h3 id="partner-percent"></h3><p class="muted">de su vida contigo</p></article><article class="stat"><p>Cuando empezó todo</p><h3 id="start-age"></h3><p id="start-age-detail" class="muted"></p></article></div>
+<section class="next-section"><div class="section-heading"><div><p class="eyebrow">LO PRÓXIMO QUE CELEBRAR</p><h2>Más motivos para brindar.</h2></div><span aria-hidden="true">✦</span></div><div id="events" class="events"></div><p class="small muted">Añade cualquier hito a tu calendario con el botón +.</p></section>
+<div class="share-row"><p>Algunas cifras merecen compartirse.</p><div><button id="share" type="button" class="outline">Compartir ↗</button><button id="download" type="button" class="outline">Guardar tarjeta ↓</button></div><p id="share-status" role="status" class="small muted"></p></div>
+</div>
+</div>
+</section>
+<section id="future" class="future-section" hidden><div class="future-intro"><p class="eyebrow">03 / UN VISTAZO AL FUTURO</p><h2>¿Cuándo será<br><em>media vida juntos?</em></h2><p class="muted">Mueve el porcentaje y encuentra vuestra próxima fecha especial.</p></div><div class="future-controls"><label for="percentage-target">Quiero llevar contigo… <output id="target-output" for="percentage-target">50 %</output></label><input type="range" id="percentage-target" min="1" max="99" value="50"><div class="range-labels"><span>1 % de mi vida</span><span>99 %</span></div><div id="future-result"></div><div class="age-forecast"><label for="forecast-age">Cuando cumpla</label><input type="number" id="forecast-age" min="1" max="120" value="60" inputmode="numeric"><span>años…</span><p id="age-result"></p></div></div></section>
+<aside id="ad-space" class="ad-space" aria-label="Publicidad" hidden></aside>
+<section id="how" class="explanation"><p class="eyebrow">LOS NÚMEROS TAMBIÉN CUENTAN HISTORIAS</p><h2>Dos fechas. Una perspectiva nueva.</h2><div class="explanation-grid"><article><span>01</span><h3>Lo que habéis vivido</h3><p>Dividimos los días de relación entre los días de tu vida. Si llevas 10 años con tu pareja y tienes 30, habéis compartido aproximadamente un tercio de tu vida.</p></article><article><span>02</span><h3>Lo que viene después</h3><p>Calculamos la primera fecha en la que alcanzarás el porcentaje que elijas. Tu edad sigue aumentando, así que el cálculo tiene en cuenta los dos contadores.</p></article><article><span>03</span><h3>Una historia solo vuestra</h3><p>Añade el nacimiento de tu pareja, vuestra boda o un viaje. Cada persona tiene su porcentaje, pero compartís los mismos días de relación.</p></article></div><details class="faq"><summary>¿Cómo tratamos los años bisiestos y el 100 %?</summary><p>Contamos días reales del calendario, incluidos los bisiestos, sin cambios por el horario de verano. Para aniversarios del 29 de febrero usamos el 28 de febrero en años no bisiestos. Si hubo vida antes de empezar la relación, el porcentaje se aproxima al 100 %, pero nunca lo alcanza. Las horas se muestran como equivalentes de días completos, porque no conocemos la hora exacta del inicio.</p></details><details class="faq"><summary>¿Se guardan mis fechas? ¿Se comparten al enviar mi tarjeta?</summary><p>Solo las guardamos en tu navegador si marcas «Recordar mis datos». Puedes borrarlas en cualquier momento. La tarjeta y el texto compartido contienen nombres opcionales y estadísticas, sin incluir tu fecha de nacimiento. Comprueba el contenido antes de compartirlo.</p></details></section>
+</main>
+<footer><a class="brand" href="./">♡ historia de dos.</a><p>Para quienes hacen que cada día cuente.</p><div><a href="./privacidad.html">Privacidad</a><a href="https://github.com/molinero95/molinero95.github.io/issues">Contacto</a><button id="ad-privacy" class="text-button small" hidden type="button">Preferencias de publicidad</button></div></footer>
+</body></html>

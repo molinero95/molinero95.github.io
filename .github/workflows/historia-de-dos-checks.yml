@@ -1,0 +1,22 @@
+name: Historia de dos · tests
+on:
+  push:
+    branches: [master]
+    paths: ['historia-de-dos/**', '.github/workflows/historia-de-dos-checks.yml']
+  pull_request:
+    paths: ['historia-de-dos/**', '.github/workflows/historia-de-dos-checks.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test historia-de-dos/tests/*.test.mjs
+      - run: |
+          node --check historia-de-dos/app.mjs
+          node --check historia-de-dos/ads.mjs
