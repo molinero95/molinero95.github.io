@@ -71,6 +71,6 @@ test('Today follows local calendar, not UTC date string',()=>{
   const mock={getFullYear:()=>2026,getMonth:()=>9,getDate:()=>10};
   assert.equal(today(mock),D('2026-10-10'));
 });
-test('Public launch does not load unconfigured advertising',()=>{
-  assert.equal(ads.enabled,false); assert.equal(ads.publisher,''); assert.equal(ads.certifiedCmpConfigured,false);
+test('AdSense account is configured while manual ad units remain disabled',()=>{
+  assert.equal(ads.enabled,false); assert.match(ads.publisher,/^ca-pub-\d{16}$/); assert.equal(ads.slot,''); assert.equal(ads.certifiedCmpConfigured,false); assert.equal(ads.privacyPolicyReady,false);
 });

@@ -38,7 +38,8 @@ Los tests también se ejecutan mediante `.github/workflows/historia-de-dos-check
 
 - `dates.mjs`: dominio, fechas civiles y fórmulas puras.
 - `app.mjs`: formulario, presentación, guardado, compartir y exportar.
-- `ads.mjs` / `config.mjs`: publicidad y sus requisitos de activación.
+- `ads.mjs` / `config.mjs`: cuenta de AdSense y requisitos de activación de unidades manuales.
+- `../ads.txt`: autorización del publisher en la raíz del dominio.
 - `index.html` / `styles.css`: interfaz responsive y accesible.
 - `privacidad.html`: tratamiento de datos de la versión sin publicidad.
 - `tests/`: pruebas con el test runner de Node, sin dependencias.
@@ -58,7 +59,7 @@ Los aniversarios del 29 de febrero se llevan al 28 de febrero en años no bisies
 
 ## Privacidad
 
-Los datos personales se calculan en el cliente y no aparecen en la URL. Se guardan solo si el visitante lo elige. No se cargan scripts externos de analítica ni publicidad en la configuración inicial. Compartir no añade las fechas personales como campos, aunque los números pueden permitir inferencias. El ejemplo usa datos ficticios y no reemplaza los datos persistidos automáticamente.
+Los datos personales se calculan en el cliente y no aparecen en la URL. Se guardan solo si el visitante lo elige. El script de Google AdSense se carga para conectar y verificar el sitio; las unidades manuales siguen desactivadas hasta la aprobación y configuración de consentimiento. La política explica la conexión con Google. Compartir no añade las fechas personales como campos, aunque los números pueden permitir inferencias. El ejemplo usa datos ficticios y no reemplaza los datos persistidos automáticamente.
 
 ## Próximas mejoras
 
